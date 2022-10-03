@@ -71,6 +71,6 @@ public class PostService {
     public Page<Post> my(String userName, Pageable pageable) {
         UserEntity userEntity = userEntityRepository.findByUserName(userName).orElseThrow(() ->
                 new SnsApplicationException(ErrorCode.USER_NOT_FOUND, String.format("%s not founded", userName)));
-        return postEntityRepository.findAll(pageable).map(Post::fromEntity);
+        return postEntityRepository.findAllByUser(userEntity, pageable).map(Post::fromEntity);
     }
 }

@@ -26,7 +26,7 @@ public class Response<T> {
         if (result == null) {
             return  "{" +
                     "\"resultCode\":" + "\"" + resultCode + "\"," +
-                    "\"result\":" + "\"" + null;
+                    "\"result\":" + null + "}";
         }
 
         return  "{" +

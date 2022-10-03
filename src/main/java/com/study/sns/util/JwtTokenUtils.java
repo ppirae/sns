@@ -25,6 +25,7 @@ public class JwtTokenUtils {
                 .build().parseClaimsJws(token).getBody();
     }
 
+
     public static String generateToken(String userName, String key, long expiredTimeMs) {
         Claims claims = Jwts.claims();
         claims.put("userName", userName);
@@ -35,6 +36,7 @@ public class JwtTokenUtils {
                 .setExpiration(new Date(System.currentTimeMillis() + expiredTimeMs))
                 .signWith(getKey(key), SignatureAlgorithm.HS256)
                 .compact();
+
     }
 
     private static Key getKey(String key) {

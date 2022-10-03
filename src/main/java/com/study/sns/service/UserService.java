@@ -56,8 +56,6 @@ public class UserService {
         }
 
         //토큰 생성
-        String token = JwtTokenUtils.generateToken(userName, secretKey, expiredTimeMs);
-
-        return token;
+        return JwtTokenUtils.generateToken(userName, secretKey, expiredTimeMs);
     }
 }
