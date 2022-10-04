@@ -29,7 +29,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
         //get header
         final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
-        log.info(header);
         if (header == null || !header.startsWith("Bearer ")) {
             log.error("Error occurs while getting header. header is null or invalid {}", request.getRequestURL());
             filterChain.doFilter(request, response);
